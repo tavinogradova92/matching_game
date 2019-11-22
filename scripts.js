@@ -15,10 +15,25 @@ document.addEventListener('DOMContentLoaded', function generateFaces() {
 
         //handling the right side
         const theRightSide = document.getElementById("rightSide");
+        
         let rightSideImages = theLeftSide.cloneNode(true);
         rightSideImages.removeChild(rightSideImages.lastChild);
         theRightSide.appendChild(rightSideImages);
 
+        //building the game itself
+        const theBody = document.getElementsByTagName("body")[0];
+
+        theLeftSide.lastChild.addEventListener('click', function nextLevel(event) {
+                event.stopPropagation();
+                numberOfFaces += 5;
+                generateFaces();           
+        })
+
+        theBody.addEventListener('click', function gameOver() {
+            alert("You chose the wrong smile! Try again!");
+            theBody = null;
+            theLeftSide.lastChild = null;
+        });
 });
 
 console.log("Everything is working globally")
