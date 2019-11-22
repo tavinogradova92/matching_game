@@ -25,9 +25,13 @@ document.addEventListener('DOMContentLoaded', function generateFaces() {
 
         theLeftSide.lastChild.addEventListener('click', function nextLevel(event) {
                 event.stopPropagation();
+                theLeftSide.innerHTML = '';
+                theRightSide.innerHTML = '';
                 numberOfFaces += 5;
-                generateFaces();           
+                generateFaces();          
         })
+
+       
 
         theBody.addEventListener('click', function gameOver() {
             alert("You chose the wrong smile! Try again!");
@@ -36,5 +40,5 @@ document.addEventListener('DOMContentLoaded', function generateFaces() {
         });
 });
 
-console.log("Everything is working globally")
+console.log("Everything is working globally");
 
