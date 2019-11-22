@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function generateFaces() {
 
        
 
-        theBody.addEventListener('click', function gameOver() {
+        theBody.onclick = function gameOver() {
             alert("You chose the wrong smile! Try again!");
-            theBody = null;
-            theLeftSide.lastChild = null;
-        });
+            theBody.onclick = null;
+            theLeftSide.lastChild.onclick = null;
+        };
 });
 
 console.log("Everything is working globally");
